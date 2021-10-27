@@ -9,7 +9,7 @@ casper = discord.Client()  # obiekt reprezentujący połączenie z discordem
 casper_id = '<@!853645195802181672>'  # id caspra
 interaction_channels = ('testy', '🤖・poligon')  # kanały aktywności bota
 
-
+# Link do repozytorium: https://github.com/DawidKos/Casper.git
 # Poradnik o podstawach discord bota https://realpython.com/how-to-make-a-discord-bot-python/
 # GitHub biblioteki discord.py: https://github.com/Rapptz/discord.py
 # Dokumentacja discord.py https://discordpy.readthedocs.io/en/latest/api.html
