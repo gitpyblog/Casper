@@ -1,15 +1,14 @@
-import random
-
 import discord  # pip install discord
 from dotenv import load_dotenv  # pip install python-dotenv
 from os import environ
+import random
 
 ########################################################################################################################
 load_dotenv()
 DISCORD_TOKEN = environ.get('DISCORD_TOKEN')  # Przypisanie DISCORD_TOKEN ze zmiennych środowiskowych
 casper = discord.Client()  # obiekt reprezentujący połączenie z discordem
 casper_id = '<@!853645195802181672>'  # id caspra
-interaction_channels = ('testy', '🤖・poligon')  # kanały aktywności bota
+interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot')  # kanały aktywności bota
 
 
 # Link do repozytorium: https://github.com/DawidKos/Casper.git
