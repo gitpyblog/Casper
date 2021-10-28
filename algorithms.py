@@ -12,7 +12,7 @@ class Message:
 
 
 def gutenberg():
-    Message.content = input('> ').lower()
+    Message.content = input('› ').lower()
 
     if Message.content == 'test':
         Message.send('👻')
