@@ -1,4 +1,5 @@
 import random
+from termcolor import colored
 
 
 class Message:
@@ -7,11 +8,11 @@ class Message:
 
     @staticmethod
     def send(message):
-        print(message)
+        print(colored(message, 'yellow', attrs=['bold']))
 
 
 def gutenberg():
-    Message.content = input('Wiadomość: ').lower()
+    Message.content = input('> ').lower()
 
     if Message.content == 'test':
         Message.send('👻')
