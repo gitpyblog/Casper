@@ -1,7 +1,7 @@
 import random
 
 
-class Message(object):
+class Message:
     author = 'JohanesGutenberg'
     content = None
 
@@ -16,11 +16,16 @@ def gutenberg():
     if Message.content == 'test':
         Message.send('👻')
 
-    if Message.content == 'message':
-        Message.send(f'{Message.author}: {Message.content}')
-
     if Message.content == 'rzuć kostką':
-        Message.send(random.choice(range(1, 6)))
+        Message.send(rol_the_dice())
 
     if Message.content == 'kto jest najlepszym programistą?':
-        Message.send('Kacper Sieradzinski')
+        Message.send(the_best_dev())
+
+
+def rol_the_dice():
+    return random.choice(range(1, 6))
+
+
+def the_best_dev():
+    return 'Kacper Sieradzinski'
