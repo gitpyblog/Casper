@@ -35,6 +35,9 @@ async def on_message(message):  # on_message() wywoływane po nadejściu wiadomo
 
     # Interakcje
     if str(message.channel) in interaction_channels:
+        # if f'{casper_id} !GO' == message.content.lower():
+        #     await message.channel.send('')
+
         if f'{casper_id} test' == message.content.lower():
             await message.channel.send('👻')
 
