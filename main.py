@@ -44,5 +44,8 @@ async def on_message(message):  # on_message() wywoływane po nadejściu wiadomo
         if f'{casper_id} rzuć kością' == message.content.lower():
             await message.channel.send(random.choice(range(1, 6)))
 
+        if f'{casper_id} kto jest najlepszym programistą?' == \
+                message.content.lower():
+            await message.channel.send('Kacper :D')
 
 casper.run(DISCORD_TOKEN)
