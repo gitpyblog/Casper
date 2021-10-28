@@ -1,13 +1,22 @@
-class Stefek(object):
+import random
+
+
+class Message(object):
     author = 'JohanesGutenberg'
     content = None
 
 
 def gutenberg():
-    Stefek.content = input('Wiadomość: ').lower()
+    Message.content = input('Wiadomość: ').lower()
 
-    if Stefek.content == 'message':
-        print(f'{Stefek.author}: {Stefek.content}')
+    if Message.content == 'test':
+        print('👻')
 
-    if Stefek.content == 'test':
-        print('testy ok')
+    if Message.content == 'message':
+        print(f'{Message.author}: {Message.content}')
+
+    if Message.content == 'rzuć kostką':
+        print(random.choice(range(1, 6)))
+
+    if Message.content == 'kto jest najlepszym programistą?':
+        print('Kacper Sieradzinski')
