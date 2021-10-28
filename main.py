@@ -1,7 +1,8 @@
-import discord  # pip install discord
+from algorithms import *
 from dotenv import load_dotenv  # pip install python-dotenv
 from os import environ
 import random
+from discord_components import Button
 
 ########################################################################################################################
 load_dotenv()
@@ -50,5 +51,19 @@ async def on_message(message):  # on_message() wywoływane po nadejściu wiadomo
         if f'{casper_id} kto jest najlepszym programistą?' == \
                 message.content.lower():
             await message.channel.send('Kacper \U0001F61B')
+
+        if f'{casper_id} embed' == message.content.lower():
+            await message.channel.send(
+                "Guziczki",
+                components=[
+                    [
+                        Button(label="⭐ WOW button!", style=1, custom_id="button1"),
+                        Button(label="👻 Świetnie!", style=2, custom_id="button2"),
+                        Button(label="💪 Lubię to", style=3, custom_id="button3"),
+                        Button(label="🍓 Nieżle", style=4, custom_id="button4"),
+                    ]
+                ],
+            )
+
 
 casper.run(DISCORD_TOKEN)
