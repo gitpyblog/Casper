@@ -22,6 +22,9 @@ def gutenberg():
     if Message.content == 'kto jest najlepszym programistą?':
         Message.send(the_best_dev())
 
+    if Message.content == 'opowiedz żart':
+        Message.send(tell_me_a_joke())
+
 
 def rol_the_dice():
     return random.choice(range(1, 6))
@@ -29,3 +32,7 @@ def rol_the_dice():
 
 def the_best_dev():
     return 'Kacper Sieradzinski'
+
+
+def tell_me_a_joke():
+    pass
