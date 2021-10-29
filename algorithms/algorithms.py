@@ -1,4 +1,4 @@
-import discord  # pip install discord
+import discord
 
 
 def embed():
