@@ -1,4 +1,5 @@
-from casper import Casper
+from gutenberg import Gutenberg
+
 
 class AuthorMock:
     def __init__(self, username):
@@ -17,7 +18,7 @@ class MessageMock:
 
 def test_test():
     # given
-    bot = Casper()
+    bot = Gutenberg()
 
     # when
     response = bot.on_message(123, MessageMock(
@@ -29,11 +30,12 @@ def test_test():
     # then
     assert response == '👻'
 
+
 def test_throw_a_dice():
     # given
-    bot = Casper()
+    bot = Gutenberg()
 
-    #when
+    # when
     response = bot.on_message(123, MessageMock(
         '#kanał',
         AuthorMock('Kacper'),
@@ -41,17 +43,15 @@ def test_throw_a_dice():
     ))
 
     # then
-    assert response >= 1 and response <= 6
+    assert 1 <= response <= 6
 
-
-def test_is_a_bootcamp_member():
-    # TDD - test driven development
-    # sprawdzam, czy dany email znajduje się na liście maili kursantów
-    # given
-    bot = Casper()
-    bot.listaKursantów = []
-
-    response = bot.on_message(123, MessageMock(
-        '#'
-    ))
-
+# def test_is_a_bootcamp_member():
+#     # TDD - test driven development
+#     # sprawdzam, czy dany email znajduje się na liście maili kursantów
+#     # given
+#     bot = Gutenberg()
+#     bot.listaKursantow = []
+#
+#     response = bot.on_message(123, MessageMock(
+#         '#'
+#     ))

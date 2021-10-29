@@ -1,11 +1,13 @@
 import random
 
+
 # klasa rozkminiająca co tak naprawdę ma zrobić bot i co ma zwrócić
 # to to jest właśnie Gutenberg :)
 # @TODO:
 
-class Casper:
-    def on_message(self, casper_id, message):
+class Gutenberg:
+    @staticmethod
+    def on_message(casper_id, message):
         print(f'({message.channel}) {message.author}: {message.content}')  # Print wszystkich nadchodzących wiadomości
 
         # if message.author == casper.user:  # Zabezpieczenie przed sprzęźeniem zwrotnym
