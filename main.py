@@ -1,8 +1,8 @@
-from algorithms import *
+import discord
 from dotenv import load_dotenv  # pip install python-dotenv
 from os import environ
 # from discord_components import Button
-from gutenberg import Gutenberg
+from algorithms.gutenberg import Gutenberg
 
 ########################################################################################################################
 load_dotenv()

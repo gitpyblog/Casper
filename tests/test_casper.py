@@ -1,4 +1,4 @@
-from gutenberg import Gutenberg
+from algorithms.gutenberg import Gutenberg
 
 
 class AuthorMock:
