@@ -29,10 +29,12 @@ async def on_ready():  # on_ready() wywoływane po połączeniu z discordem
 @casper.event
 async def on_message(message):  # on_message() wywoływane po nadejściu wiadomości
     print(f'({message.channel}) {message.author}: {message.content}')  # Print wszystkich nadchodzących wiadomości
+    command = bot.on_message(message)
 
-    if message.author.bot is not True and str(message.channel) in interaction_channels:
-        if type(bot.on_message(message)) is str:
-            await message.channel.send(bot.on_message(message))
+    if message.author.bot is not True and\
+            str(message.channel) in interaction_channels and\
+            type(command) is str:
+        await message.channel.send(command)
 
 
 casper.run(DISCORD_TOKEN)
