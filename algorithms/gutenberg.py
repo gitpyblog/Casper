@@ -8,12 +8,8 @@ import random
 class Gutenberg:
     @staticmethod
     def on_message(casper_id, message):
-        print(f'({message.channel}) {message.author}: {message.content}')  # Print wszystkich nadchodzących wiadomości
 
-        # if message.author == casper.user:  # Zabezpieczenie przed sprzęźeniem zwrotnym
-        #     return
-        print(f'{casper_id} test')
-        print(message.content.lower())
+
         if f'{casper_id} test' == message.content.lower():
             return '👻'
 
