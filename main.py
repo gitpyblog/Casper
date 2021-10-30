@@ -18,10 +18,8 @@ async def on_ready():  # on_ready() wywoływane po połączeniu z discordem
 
 @casper.event
 async def on_message(message):  # on_message() wywoływane po nadejściu wiadomości
-    if message.author == casper.user:  # Zabezpieczenie przed sprzęźeniem zwrotnym
-        return
-
-    await listonosz(message)
+    if message.author.bot is not True:  # Zabezpieczenie przed sprzęźeniem zwrotnym
+        await listonosz(message)
 
 
 casper.run(DISCORD_TOKEN)

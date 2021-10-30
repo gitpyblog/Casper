@@ -17,17 +17,14 @@ class Gutenberg:
         if f'{casper_id} test' == message.content.lower():
             return '👻'
 
-        elif f'{casper_id} message' in message.content.lower():
-            return message
+        if f'{casper_id} message' in message.content.lower():
+            return message.author.bot
 
-        elif f'{casper_id} rzuć kością' == message.content.lower():
+        if f'{casper_id} rzuć kością' == message.content.lower():
             return random.choice(range(1, 6))
 
-        elif f'{casper_id} kto jest najlepszym programistą?' == message.content.lower():
+        if f'{casper_id} kto jest najlepszym programistą?' == message.content.lower():
             return 'Kacper \U0001F61B'
-
-        else:
-            return 'err'
 
         #  @TODO: we have await here.. need to code
         # if f'{casper_id} embed' == message.content.lower():
