@@ -8,7 +8,6 @@ from algorithms.gutenberg import Gutenberg
 load_dotenv()
 DISCORD_TOKEN = environ.get('DISCORD_TOKEN')  # Przypisanie DISCORD_TOKEN ze zmiennych środowiskowych
 casper = discord.Client()  # obiekt reprezentujący połączenie z discordem
-casper_id = '<@!853645195802181672>'  # id caspra
 interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot')  # kanały aktywności bota
 
 # Link do repozytorium: https://github.com/DawidKos/Casper.git
@@ -32,7 +31,7 @@ async def on_message(message):  # on_message() wywoływane po nadejściu wiadomo
     print(f'({message.channel}) {message.author}: {message.content}')  # Print wszystkich nadchodzących wiadomości
 
     if message.author.bot is not True and str(message.channel) in interaction_channels:
-        await message.channel.send(bot.on_message(casper_id, message))
+        await message.channel.send(bot.on_message(message))
 
 
 casper.run(DISCORD_TOKEN)
