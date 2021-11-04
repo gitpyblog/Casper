@@ -3,6 +3,7 @@ async-timeout==3.0.1
 attrs==21.2.0
 chardet==4.0.0
 discord==1.7.3
+discord-buttons-plugin==0.1.2
 discord.py==1.7.3
 idna==3.3
 multidict==5.2.0
