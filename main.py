@@ -2,7 +2,7 @@ import discord
 from dotenv import load_dotenv  # pip install python-dotenv
 from os import environ
 # from discord_components import Button
-from algorithms.gutenberg import Gutenberg
+from algorithms.watson import Watson
 
 ########################################################################################################################
 load_dotenv()
@@ -17,7 +17,6 @@ interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot')  # kana�
 # Metody obiektu message: https://discordpy.readthedocs.io/en/latest/api.html#discord.Message
 
 ########################################################################################################################
-bot = Gutenberg()
 
 
 @casper.event
@@ -29,7 +28,7 @@ async def on_ready():  # on_ready() wywoływane po połączeniu z discordem
 @casper.event
 async def on_message(message):  # on_message() wywoływane po nadejściu wiadomości
     print(f'({message.channel}) {message.author}: {message.content}')  # Print wszystkich nadchodzących wiadomości
-    command = bot.on_message(message)
+    command = Watson().on_message(message)
 
     if message.author.bot is not True and\
             str(message.channel) in interaction_channels and\

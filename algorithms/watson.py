@@ -2,7 +2,7 @@ import random
 
 
 # klasa rozkminiająca co tak naprawdę ma zrobić bot i co ma zwrócić
-class Gutenberg:
+class Watson:
     @staticmethod
     def on_message(message):
         casper_id = '<@!853645195802181672>'  # id caspra
