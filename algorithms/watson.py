@@ -1,7 +1,16 @@
-import random
 import re
-
 import textdistance
+
+from algorithms.algorithms import *
+
+casper_id = '853645195802181672'  # id caspra
+helps = ('help', 'pomoc', 'komendy')
+note = ('zanotuj',)
+roll = ('rzuć', 'rzucaj', 'kulnij', 'kulaj')
+dice = ('kostką', 'kością')
+coin = ('monetą', 'monetka')
+tests = ('test', 'testuj')
+hello = ('cześć', 'witaj', 'hejka')
 
 
 # klasa rozkminiająca co tak naprawdę ma zrobić bot i co ma zwrócić
@@ -13,22 +22,14 @@ class Watson:
         self.channel = message.channel
 
     @staticmethod
-    def compare(a, b=0):
-        for word in a:
-            if textdistance.hamming.normalized_distance(word, b) < 0.3:
+    def compare(w, p=0):
+        for word in w:
+            if textdistance.hamming.normalized_distance(word, p) < 0.3:
                 return True
 
     def find(self):
         action = None
-        casper_id = '853645195802181672'  # id caspra
         words = re.findall(r'[0-9]{18}|[\w]{4,}', self.message)
-
-        helps = ('help', 'pomoc', 'komendy')
-        roll = ('rzuć', 'kulnij', 'kulaj')
-        dice = ('kostką', 'kością')
-        coin = ('monetą', 'monetke')
-        tests = ('test', 'testuj')
-        find = ('szukaj', 'poszukaj', 'znajdź', 'odszukaj', 'wyszukaj')
 
         if words[0] == casper_id:
 
@@ -38,15 +39,19 @@ class Watson:
             if Watson.compare(tests, words[1]) is True:
                 action = '👻'
 
-            if Watson.compare(find, words[1]) is True:
-                action = 'znaleziono'
+            if Watson.compare(note, words[1]) is True:
+                action = notebook(f'{self.author}: {self.message}')
+
+            if Watson.compare(hello, words[1]) is True:
+                action = hello_casper()
 
             if Watson.compare(roll, words[1]) is True:
+
                 if Watson.compare(dice, words[2]) is True:
-                    action = f'🎲 **{random.choice(range(1, 6))}**'
+                    action = roll_dice()
+
                 if Watson.compare(coin, words[2]) is True:
-                    x = ('🪙 **orzeł!**', '🪙 **reszka!**')
-                    action = f'{random.choice(x)}'
+                    action = flip_coin()
 
         if words[0] != casper_id and casper_id in words:
             action = 'Ktoś mnie szuka?'
