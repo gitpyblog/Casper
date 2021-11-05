@@ -1,6 +1,8 @@
 import random
 import re
 
+import textdistance
+
 
 # klasa rozkminiająca co tak naprawdę ma zrobić bot i co ma zwrócić
 class Watson:
@@ -10,9 +12,11 @@ class Watson:
         self.author = message.author
         self.channel = message.channel
 
-    def szukaj(self, command):
-        if command == self.message:
-            pass
+    @staticmethod
+    def compare(a, b=0):
+        for word in a:
+            if textdistance.hamming.normalized_distance(word, b) < 0.3:
+                return True
 
     def find(self):
         action = None
@@ -20,22 +24,27 @@ class Watson:
         words = re.findall(r'[0-9]{18}|[\w]{4,}', self.message)
 
         helps = ('help', 'pomoc', 'komendy')
-        roll = ('rzuć', 'roll', 'rzóć', 'rzóc', 'rzoc', 'kulnij')
-        dice = ('kostką', 'kostkom', 'kością', 'kościom', 'kościa', 'koscią')
-        coin = ('monetą', 'coin', 'monetom')
-        tests = ('test', 'testy', 'cześć', 'czesc', 'hej')
+        roll = ('rzuć', 'kulnij', 'kulaj')
+        dice = ('kostką', 'kością')
+        coin = ('monetą', 'monetke')
+        tests = ('test', 'testuj')
+        find = ('szukaj', 'poszukaj', 'znajdź', 'odszukaj', 'wyszukaj')
 
         if words[0] == casper_id:
+
             if words[1] in helps:
                 action = 'O pomoc pytaj <@822457646589804585>'
 
-            if words[1] in tests:
+            if Watson.compare(tests, words[1]) is True:
                 action = '👻'
 
-            if words[1] in roll:
-                if words[2] in dice:
+            if Watson.compare(find, words[1]) is True:
+                action = 'znaleziono'
+
+            if Watson.compare(roll, words[1]) is True:
+                if Watson.compare(dice, words[2]) is True:
                     action = f'🎲 **{random.choice(range(1, 6))}**'
-                if words[2] in coin:
+                if Watson.compare(coin, words[2]) is True:
                     x = ('🪙 **orzeł!**', '🪙 **reszka!**')
                     action = f'{random.choice(x)}'
 
@@ -43,24 +52,6 @@ class Watson:
             action = 'Ktoś mnie szuka?'
 
         return action
-
-        # if f'{casper_id} test' == self.message:
-        #     action = '👻'
-        #
-        # if f'{casper_id} embed' == self.message:
-        #     pass
-        #
-        # if f'{casper_id} rzuć kością' == self.message:
-        #     action = f'🎲 {random.choice(range(1, 6))}'
-        #
-        # if f'{casper_id} rzuć monetą' == self.message:
-        #     coin = ('🪙 orzeł!', '🪙 reszka!')
-        #     action = f'{random.choice(coin)}'
-        #
-        # if f'{casper_id} kto jest najlepszym programistą?' == self.message:
-        #     action = '<@!400403900039168000> :first_place:'
-        #
-        # return action
 
     def show(self):
         print(f'Treść: {self.message}')
