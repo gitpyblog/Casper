@@ -26,5 +26,6 @@ def hello_casper():
         'Witaj!',
         'Co słychać?',
         'Piona! 🖐️',
-        'Przybij żółwika! 👊 ']
+        'Przybij żółwika! 👊 ',
+        'Dobrze Cię wiedzieć 😀']
     return str(random.choice(hello))
