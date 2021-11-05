@@ -22,8 +22,7 @@ interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot')  # kana�
 
 @casper.event
 async def on_ready():  # on_ready() wywoływane po połączeniu z discordem
-    print(f'{casper.user.name} connected')
-    print(f'Bot ID: {casper.user.id}')
+    print(f'{casper.user.name} connected (ID: {casper.user.id})\n')
 
 
 @casper.event
@@ -31,9 +30,8 @@ async def on_message(message):  # on_message() wywoływane po nadejściu wiadomo
     msg = Watson(message)
     print(f'({msg.channel}) {msg.author}: {msg.message}')  # Print wszystkich nadchodzących wiadomości
 
-    if message.author.bot is not True and str(message.channel) in interaction_channels and type(msg.action) is not None:
-
-        await message.channel.send("ok")
+    if msg.author.bot is False and msg.find() is not None:
+        await msg.channel.send(msg.find())
 
 
 casper.run(DISCORD_TOKEN)
