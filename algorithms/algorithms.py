@@ -1,4 +1,4 @@
-import random
+from random import choice
 
 
 def notebook(m):
@@ -8,14 +8,14 @@ def notebook(m):
 
 
 def roll_dice():
-    return str(f'🎲 **{random.choice(range(1, 6))}**')
+    return str(f'🎲 **{choice(range(1, 6))}**')
 
 
 def flip_coin():
     flip = [
         '🪙 **orzeł!**',
         '🪙 **reszka!**']
-    return str(f'{random.choice(flip)}')
+    return str(f'{choice(flip)}')
 
 
 def hello_casper():
@@ -28,4 +28,4 @@ def hello_casper():
         'Piona! 🖐️',
         'Przybij żółwika! 👊 ',
         'Dobrze Cię wiedzieć 😀']
-    return str(random.choice(hello))
+    return str(choice(hello))

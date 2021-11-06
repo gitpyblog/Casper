@@ -1,6 +1,5 @@
-import re
-import textdistance
-
+from re import findall
+from textdistance import hamming
 from algorithms.algorithms import *
 
 casper_id = '853645195802181672'  # id caspra
@@ -24,12 +23,12 @@ class Watson:
     @staticmethod
     def compare(w, p=0):
         for word in w:
-            if textdistance.hamming.normalized_distance(word, p) < 0.3:
+            if hamming.normalized_distance(word, p) < 0.3:
                 return True
 
     def find(self):
         action = None
-        words = re.findall(r'[0-9]{18}|[\w]{4,}', self.message)  # TODO: Obsłużyć wyjątek regexa mniejszego niż 4 znaki
+        words = findall(r'[0-9]{18}|[\w]{4,}', self.message)  # TODO: Obsłużyć wyjątek regexa mniejszego niż 4 znaki
 
         if words[0] == casper_id:
 
