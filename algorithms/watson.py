@@ -29,7 +29,7 @@ class Watson:
 
     def find(self):
         action = None
-        words = re.findall(r'[0-9]{18}|[\w]{4,}', self.message)
+        words = re.findall(r'[0-9]{18}|[\w]{4,}', self.message)  # TODO: Obsłużyć wyjątek regexa mniejszego niż 4 znaki
 
         if words[0] == casper_id:
 

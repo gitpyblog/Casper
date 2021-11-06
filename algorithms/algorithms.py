@@ -2,7 +2,7 @@ import random
 
 
 def notebook(m):
-    with open('notebook.txt', "a") as n:
+    with open('notebook.txt', "a", encoding="utf-8") as n:
         n.write(f'{m}\n')
     return str('📝 zanotowałem!')
 
