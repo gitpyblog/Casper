@@ -1,4 +1,4 @@
-from algorithms.gutenberg import Gutenberg
+from algorithms.watson import Watson
 
 
 class AuthorMock:
@@ -18,10 +18,10 @@ class MessageMock:
 
 def test_test():
     # given
-    bot = Gutenberg()
+    bot = Watson()
 
     # when
-    response = bot.on_message(123, MessageMock(
+    response = bot.find(123, MessageMock(
         '#kanał',
         AuthorMock('Kacper'),
         '123 test'
@@ -33,10 +33,10 @@ def test_test():
 
 def test_throw_a_dice():
     # given
-    bot = Gutenberg()
+    bot = Watson()
 
     # when
-    response = bot.on_message(123, MessageMock(
+    response = bot.find(123, MessageMock(
         '#kanał',
         AuthorMock('Kacper'),
         '123 rzuć kością'
