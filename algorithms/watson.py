@@ -7,9 +7,10 @@ helps = ('help', 'pomoc', 'komendy')
 note = ('zanotuj',)
 roll = ('rzuć', 'rzucaj', 'kulnij', 'kulaj')
 dice = ('kostką', 'kością')
-coin = ('monetą', 'monetka')
+coin = ('moneta', 'monetka')
 tests = ('test', 'testuj')
 hello = ('cześć', 'witaj', 'hejka')
+hi = (' tail')
 
 
 # klasa rozkminiająca co tak naprawdę ma zrobić bot i co ma zwrócić
@@ -31,6 +32,9 @@ class Watson:
         words = findall(r'[0-9]{18}|[\w]{4,}', self.message)  # TODO: Obsłużyć wyjątek regexa mniejszego niż 4 znaki
 
         if words[0] == casper_id:
+
+            if words[1] in hi:
+                action = 'O wow! @Burżua czy boty też mogą aplikować? 👻'
 
             if words[1] in helps:
                 action = 'O pomoc pytaj <@822457646589804585>'

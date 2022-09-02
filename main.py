@@ -6,9 +6,11 @@ from algorithms.watson import Watson
 
 ########################################################################################################################
 load_dotenv()
+intents = discord.Intents.default()
+intents.message_content = True
 DISCORD_TOKEN = environ.get('DISCORD_TOKEN')  # Przypisanie DISCORD_TOKEN ze zmiennych środowiskowych
-casper = discord.Client()  # obiekt reprezentujący połączenie z discordem
-interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot')  # kanały aktywności bota
+casper = discord.Client(intents=intents)  # obiekt reprezentujący połączenie z discordem
+interaction_channels = ('testy', '🤖・poligon', '👻・casper-bot', '💼・oferty-pracy')  # kanały aktywności bota
 
 
 # Link do repozytorium: https://github.com/DawidKos/Casper.git
